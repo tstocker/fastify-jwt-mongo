@@ -1,0 +1,12 @@
+const config = {
+  secret: 'MySecretForJWTTokenINeedChange',
+  mongodb: {
+    path: 'mongodb://127.0.0.1:27017/',
+    db: "db_name"
+  },
+  server: {
+    port: 3000
+  }
+};
+
+module.exports = config;
