@@ -3,6 +3,10 @@
 This project is a init project for an api with fastify, a node framework.
 It use a jwt token for users sessions and mongodb as database.
 
+## Last updates
+
+- Refactoring register/user.js, explode code for factorisation usage with a user manager witch contains 
+users fonctionalities and db requests.
 
 ##Requirement
 
@@ -29,6 +33,8 @@ Edit your own `config.js` and set your
 - mongodb name
 
 ## Start api
+
+You need to start mongodb first either you will get connections errors
 
 ```bash
 yarn start

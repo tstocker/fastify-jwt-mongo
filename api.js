@@ -1,10 +1,14 @@
-const fs = require('fs');
-const path = require('path');
 const config = require('./config');
 
 const fastify = require('fastify')({
   logger: true
 });
+
+
+/*************************
+ *  Fastify Dependencies *
+ *************************/
+fastify.use(require('cors')());
 
 fastify.register(require('fastify-mongodb'), {
   url: config.mongodb.path + config.mongodb.db
@@ -14,9 +18,18 @@ fastify.register(require('fastify-jwt'), {
   secret: config.secret
 });
 
+
+/***************************
+ *  Managers definitions   *
+ ***************************/
+fastify.register(require('./manager/user.manager'));
+
+
+/*******************************
+ * Paths registry declarations *
+ *******************************/
 fastify.register(require('./registry/users'));
 fastify.register(require('./registry/jwt-token').routes);
-
 
 
 /** hooks **/

@@ -1,3 +1,10 @@
+/**
+ * hook find if token is set on request
+ * @param request
+ * @param reply
+ * @param next
+ * @returns {Promise<void>}
+ */
 async function hook(request, reply, next) {
 
   let fastify = this.fastify;
@@ -30,18 +37,40 @@ async function hook(request, reply, next) {
         return;
       }
     } catch(e) {
-      console.log(e)
+      console.log(e);
       reply.code(401).send();
       return;
     }
   }
 }
 
-async function routes (fastify, options) {
+const loginOpts = {
+  schema: {
+    body: {
+      title: "user",
+      type: 'object',
+      properties: {
+        username: { type: "string"},
+        password: { type: "string" }
+      },
+      required: ['username', 'password']
+    }
+  }
+};
 
-  fastify.post('/api/login', (request, reply) => {
+/**
+ * Defines routes for identification
+ * @param fastify
+ * @param options
+ * @returns {Promise<void>}
+ */
+async function routes (fastify, options) {
+  fastify.post('/api/login', loginOpts, (request, reply) => {
+    const {body} = request;
+
     // TODO create a real connnection
-    let payload = {"tokenName": 'userName' };
+    let payload = {"tokenName": 'userName'};
+
     const token = fastify.jwt.sign(payload, {expiresIn: "120s"});
     reply.send({ token: token })
   });
