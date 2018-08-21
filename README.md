@@ -3,7 +3,7 @@
 This project is a init project for an api with fastify, a node framework.
 It use a jwt token for users sessions and mongodb as database.
 
-`note: this project is a good start for api witch need jwt token sessions, not for the objectives i have now. So i let this projet in stand-by. a made a fork for cookie sessions users for common websites witch needs users sessions.`
+`note: this project is a good start for api witch need jwt token sessions, not for the objectives i have now. So i let this projet in stand-by and made a fork for cookie sessions users for common websites witch needs users sessions.`
 
 ## Last updates
 
