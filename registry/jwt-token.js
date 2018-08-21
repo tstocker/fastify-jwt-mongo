@@ -50,10 +50,10 @@ const loginOpts = {
       title: "user",
       type: 'object',
       properties: {
-        username: { type: "string"},
+        email: { type: "string"},
         password: { type: "string" }
       },
-      required: ['username', 'password']
+      required: ['email', 'password']
     }
   }
 };
@@ -65,14 +65,17 @@ const loginOpts = {
  * @returns {Promise<void>}
  */
 async function routes (fastify, options) {
-  fastify.post('/api/login', loginOpts, (request, reply) => {
+  fastify.post('/api/login', loginOpts, async (request, reply) => {
     const {body} = request;
+      await fastify.userManager.isValidUser(body.email, body.password).catch((err) => {
+        reply.code(401).send({message: "Invalid email or password", error: err});
+        return false;
+      });
 
-    // TODO create a real connnection
-    let payload = {"tokenName": 'userName'};
+      let payload = {"tokenName": body.email};
 
-    const token = fastify.jwt.sign(payload, {expiresIn: "120s"});
-    reply.send({ token: token })
+      const token = fastify.jwt.sign(payload, {expiresIn: "120s"});
+      reply.send({ token: token });
   });
 
   fastify.post('/api/logout', (request, reply) => {

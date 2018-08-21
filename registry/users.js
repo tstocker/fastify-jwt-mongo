@@ -10,9 +10,10 @@ const userCreationOpts = {
         firstName: { type: "string" },
         lastName: { type: "string" },
         email: { type: 'string' },
-        birthdate: { type: 'string' }
+        birthdate: { type: 'string' },
+        password: {type: 'string'}
       },
-      required: ['username', 'email']
+      required: ['username', 'email', 'password']
     }
   }
 };
