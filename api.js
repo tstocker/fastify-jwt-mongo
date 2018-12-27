@@ -5,6 +5,13 @@ const fastify = require('fastify')({
 });
 
 
+function registerPathDependecies(root) {
+  let dependencies = require(root).dependencies;
+  for(let i in dependencies) {
+    fastify.register(require(dependencies[i].root), dependencies[i].params);
+  }
+}
+
 /*************************
  *  Fastify Dependencies *
  *************************/
@@ -17,6 +24,10 @@ fastify.register(require('fastify-mongodb'), {
 fastify.register(require('fastify-jwt'), {
   secret: config.secret
 });
+
+// register modules dependecies
+registerPathDependecies('./registry/jwt-token');
+
 
 
 /***************************

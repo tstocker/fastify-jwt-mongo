@@ -17,6 +17,14 @@
     "@types/events" "*"
     "@types/node" "*"
 
+abstract-cache@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/abstract-cache/-/abstract-cache-1.0.1.tgz#136151becf5c32e0ea27f78728d073d8fe07932a"
+  dependencies:
+    clone "^2.1.1"
+    lru_map "^0.3.3"
+    merge-options "^1.0.0"
+
 abstract-logging@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/abstract-logging/-/abstract-logging-1.0.0.tgz#8b7deafd310559bc28f77724dd1bb30177278c1b"
@@ -59,6 +67,10 @@ chalk@^2.4.1:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
+clone@^2.1.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
+
 color-convert@^1.9.0:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.2.tgz#49881b8fba67df12a96bdf3f56c0aab9e7913147"
@@ -68,6 +80,14 @@ color-convert@^1.9.0:
 color-name@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.1.tgz#4b1415304cf50028ea81643643bd82ea05803689"
+
+cookie-signature@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.1.0.tgz#cc94974f91fb9a9c1bb485e95fc2b7f4b120aff2"
+
+cookie@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -143,6 +163,21 @@ fastfall@^1.5.0:
   dependencies:
     reusify "^1.0.0"
 
+fastify-caching@^3.0.0:
+  version "3.0.0"
+  resolved "http://registry.npmjs.org/fastify-caching/-/fastify-caching-3.0.0.tgz#38cbbb3f8ecd0fa96510ade61b54cab6c6128795"
+  dependencies:
+    abstract-cache "^1.0.1"
+    fastify-plugin "^0.2.2"
+    uid-safe "^2.1.5"
+
+fastify-cookie@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/fastify-cookie/-/fastify-cookie-2.1.4.tgz#e9982c6d7c3f7f2794bdbc195e516eb92fe9c4dd"
+  dependencies:
+    cookie "^0.3.1"
+    fastify-plugin "^1.2.1"
+
 fastify-jwt@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/fastify-jwt/-/fastify-jwt-0.3.0.tgz#24bb37dc120de34220a1d9ac54c3621dd8387f4b"
@@ -158,6 +193,12 @@ fastify-mongodb@^0.7.1:
     fastify-plugin "^1.0.1"
     mongodb "^3.0.7"
 
+fastify-plugin@^0.2.2:
+  version "0.2.2"
+  resolved "http://registry.npmjs.org/fastify-plugin/-/fastify-plugin-0.2.2.tgz#e01b67685fd02e87edc98670ce2acfe251a2c715"
+  dependencies:
+    semver "^5.4.1"
+
 fastify-plugin@^1.0.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-1.1.3.tgz#77db8a58046369ed6dc93d0f14bbe0ba16584aaa"
@@ -169,6 +210,21 @@ fastify-plugin@^1.2.0:
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-1.2.0.tgz#b87274ad9d14e41efcd3240c64f5dee4c39b2154"
   dependencies:
     semver "^5.5.0"
+
+fastify-plugin@^1.2.1:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-1.3.0.tgz#6f51e1e8df5b89658e2ca7a6b86c5b7a6ede376a"
+  dependencies:
+    semver "^5.5.0"
+
+fastify-server-session@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/fastify-server-session/-/fastify-server-session-2.0.0.tgz#5d9c18c59c56c9ff46306aad183d06bb19fed61e"
+  dependencies:
+    cookie-signature "^1.1.0"
+    fastify-plugin "^0.2.2"
+    merge-options "^1.0.0"
+    uid-safe "^2.1.5"
 
 fastify@^1.6.0:
   version "1.6.0"
@@ -226,6 +282,10 @@ has-flag@^3.0.0:
 inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
+
+is-plain-obj@^1.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e"
 
 isarray@~1.0.0:
   version "1.0.0"
@@ -299,6 +359,16 @@ lodash.isstring@^4.0.1:
 lodash.once@^4.0.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
+
+lru_map@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/lru_map/-/lru_map-0.3.3.tgz#b5c8351b9464cbd750335a79650a0ec0e56118dd"
+
+merge-options@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/merge-options/-/merge-options-1.0.1.tgz#2a64b24457becd4e4dc608283247e94ce589aa32"
+  dependencies:
+    is-plain-obj "^1.1"
 
 middie@^3.1.0:
   version "3.1.0"
@@ -395,6 +465,10 @@ quick-format-unescaped@^1.1.2:
   dependencies:
     fast-safe-stringify "^1.0.8"
 
+random-bytes@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/random-bytes/-/random-bytes-1.0.0.tgz#4f68a1dc0ae58bd3fb95848c30324db75d64360b"
+
 readable-stream@^2.1.5, readable-stream@^2.3.3:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
@@ -448,6 +522,10 @@ semver@^5.1.0, semver@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
+semver@^5.4.1:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
+
 split2@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/split2/-/split2-2.2.0.tgz#186b2575bcf83e85b7d18465756238ee4ee42493"
@@ -486,6 +564,12 @@ through2@^2.0.2:
 tiny-lru@^1.5.2:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/tiny-lru/-/tiny-lru-1.6.1.tgz#addb5c043311d1f07cd3a81d706ae739b8efebb1"
+
+uid-safe@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/uid-safe/-/uid-safe-2.1.5.tgz#2b3d5c7240e8fc2e58f8aa269e5ee49c0857bd3a"
+  dependencies:
+    random-bytes "~1.0.0"
 
 uri-js@^4.2.1:
   version "4.2.2"

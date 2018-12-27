@@ -20,6 +20,10 @@ const userCreationOpts = {
 
 async function routes (fastify, options) {
 
+  fastify.get('/api/users/me', async (request, reply) => {
+    return (request.session.user) ? request.session.user : {};
+  });
+
   fastify.get('/api/users/:id', async (request, reply) => {
     return fastify.userManager.getById(request.params.id);
   });

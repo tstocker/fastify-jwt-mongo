@@ -128,20 +128,20 @@ function userManager (fastify, options, next) {
 
     return new Promise(async (resolve, reject) => {
       let user = await getBy('email', email);
-      if (!user._id) {
+      if (!user || !user._id) {
         reject(false);
         return;
       }
 
       let passwordSalt = sha512(password, user.password.salt);
       if (passwordSalt.passwordHash === user.password.passwordHash) {
-        resolve(true);
+        delete(user.password);
+        resolve(user);
         return;
       }
 
       reject(false);
     })
-
   }
 
   // decorate fastify with manager public functions
